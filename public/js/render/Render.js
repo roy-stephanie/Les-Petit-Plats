@@ -40,3 +40,30 @@ export default function Render(searchMethods) {
   RenderLength(dataRecipes);
   RenderRecipes(dataRecipes, searchMethods);
 }
+
+export function addShortestMatchingTag(searchMethods) {
+  const recipes = saveOptions[0].recipe_options;
+  let shortestTag = null;
+
+  // Iterate through the recipes to find all matching tags
+  for (const option of recipes) {
+    for (const item of option.data) {
+      const lowercaseItem = item.toLowerCase();
+      const searchTerm = searchMethods.getSearch().toLowerCase();
+      // Check if the item includes the search term
+      if (lowercaseItem.includes(searchTerm)) {
+        // If no shortest tag found yet or if the current tag is shorter, update shortestTag
+        if (!shortestTag || lowercaseItem.length < shortestTag.length) {
+          shortestTag = lowercaseItem;
+        }
+      }
+    }
+  }
+
+  // Add the shortest matching tag to searchMethods
+  if (shortestTag) {
+    searchMethods.setTags(shortestTag);
+  }
+
+  return null;
+}

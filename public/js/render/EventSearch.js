@@ -1,3 +1,5 @@
+import { addShortestMatchingTag } from './Render.js';
+
 export default function EventSearch(searchMethods) {
   const HTMLHeaderSearchForm = document.querySelector('#HeaderSearchForm');
   const HTMLHeaderSearchFormInput = document.querySelector('#HeaderSearchFormInput');
@@ -7,6 +9,8 @@ export default function EventSearch(searchMethods) {
     ev.preventDefault();
     renderEventChangeImgStatusLabel();
     searchMethods.setSearch(HTMLHeaderSearchFormInput.value);
+    addShortestMatchingTag(searchMethods);
+    HTMLHeaderSearchFormInput.value = '';
   });
 
   HTMLHeaderSearchFormLabel.addEventListener('click', (ev) => {

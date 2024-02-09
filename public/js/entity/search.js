@@ -51,11 +51,6 @@ export default function Search(initialSearch = undefined, initialTags = []) {
         const updatedTags = state.tags ? [...state.tags, value] : [value];
         updateState('tags', updatedTags ? updatedTags : '');
       }
-    } else if (Array.isArray(value)) {
-      // To add multiple tags
-      const newTags = value.filter(tag => typeof tag === 'string' && !state.tags.includes(tag));
-      const updatedTags = [...state.tags, ...newTags];
-      updateState('tags', updatedTags);
     }
   };
 

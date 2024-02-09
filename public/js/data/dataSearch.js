@@ -1,89 +1,71 @@
 /**
- * Search recipes with multiple properties.
+ * Searches for recipes based on the given search term and a specified property.
  *
- * @param {string} search - Words to search.
- * @param {Array} recipes - The recipes to search in.
- * @param {Function} getProperty - The function to get property from recipe.
- * @return {Array} result - The recipes that match the search words.
+ * @param {string} search - The search term.
+ * @param {Array} recipes - The array of recipes to search within.
+ * @param {Function} getProperty - A function that takes a recipe and returns the property to search in.
+ * @returns {Array} - An array of recipes that match the search criteria.
  */
-
-export function searchByPropertyAlternativeFor(search, recipes, getProperty) {
+export function searchByPropertyAlternative(search, recipes, getProperty) {
   const searchWords = search.trim().toLowerCase().split(' ');
-  const result = [];
 
-  for (const recipe of recipes) {
-    const property = getProperty(recipe).toLowerCase();
-    if (searchWords.every(word => property.includes(word))) {
-      result.push(recipe);
-    }
-  }
-
-  return result;
+  return recipes.filter(recipe =>
+    searchWords.every(word =>
+      getProperty(recipe).toLowerCase().includes(word),
+    ),
+  );
 }
 
 /**
- * Search recipes by utensils.
+ * Searches for recipes based on utensils.
  *
- * @param {string} search - Words to search.
- * @param {Array} recipes - The recipes to search in.
- * @return {Array} result - The recipes that match the search words.
+ * @param {string} search - The search term.
+ * @param {Array} recipes - The array of recipes to search within.
+ * @returns {Array} - An array of recipes that match the search criteria.
  */
-
-export function searchByUtensilsAlternativeFor(search, recipes) {
+export function searchByUtensilsAlternative(search, recipes) {
   const searchWords = search.trim().toLowerCase().split(' ');
-  const result = [];
 
-  for (const recipe of recipes) {
-    for (const utensil of recipe.ustensils) {
-      if (searchWords.every(word => utensil.toLowerCase().includes(word))) {
-        result.push(recipe);
-        break;
-      }
-    }
-  }
-
-  return result;
+  return recipes.filter(recipe =>
+    recipe.ustensils.some(utensil =>
+      searchWords.every(word => utensil.toLowerCase().includes(word)),
+    ),
+  );
 }
 
 /**
- * Search recipes by ingredients.
+ * Searches for recipes based on ingredients.
  *
- * @param {string} search - Words to search.
- * @param {Array} recipes - The recipes to search in.
- * @return {Array} result - The recipes that match the search words.
+ * @param {string} search - The search term.
+ * @param {Array} recipes - The array of recipes to search within.
+ * @returns {Array} - An array of recipes that match the search criteria.
  */
-
-export function searchByIngredientsAlternativeFor(search, recipes) {
+export function searchByIngredientsAlternative(search, recipes) {
   const searchWords = search.trim().toLowerCase().split(' ');
-  const result = [];
 
-  for (const recipe of recipes) {
-    for (const ingredient of recipe.ingredients) {
-      if (searchWords.every(word => ingredient.ingredient.toLowerCase().includes(word))) {
-        result.push(recipe);
-        break;
-      }
-    }
-  }
-
-  return result;
+  return recipes.filter(recipe =>
+    recipe.ingredients.some(ingredient =>
+      searchWords.every(word =>
+        ingredient.ingredient.toLowerCase().includes(word),
+      ),
+    ),
+  );
 }
 
 /**
- * Data search for recipes.
+ * Performs a comprehensive search on recipes based on multiple properties.
  *
- * @param {string} search - Words to search.
- * @param {Array} recipes - The recipes to search in.
- * @return {Array} result - The unique recipes that match the search words.
+ * @param {string} search - The search term.
+ * @param {Array} recipes - The array of recipes to search within.
+ * @returns {Array} - An array of unique recipes that match the search criteria.
  */
-
 export default function dataSearch(search, recipes) {
   const result = [
-    ...searchByPropertyAlternativeFor(search, recipes, recipe => recipe.name),
-    ...searchByPropertyAlternativeFor(search, recipes, recipe => recipe.description),
-    ...searchByPropertyAlternativeFor(search, recipes, recipe => recipe.appliance),
-    ...searchByUtensilsAlternativeFor(search, recipes),
-    ...searchByIngredientsAlternativeFor(search, recipes),
+    ...searchByPropertyAlternative(search, recipes, recipe => recipe.name),
+    ...searchByPropertyAlternative(search, recipes, recipe => recipe.description),
+    ...searchByPropertyAlternative(search, recipes, recipe => recipe.appliance),
+    ...searchByUtensilsAlternative(search, recipes),
+    ...searchByIngredientsAlternative(search, recipes),
   ];
 
   return [...new Set(result)];

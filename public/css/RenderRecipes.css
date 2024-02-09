@@ -1,0 +1,144 @@
+#RenderRecipes {
+    margin: 0 10px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    column-gap: 40px;
+    z-index: 98;
+}
+
+#RenderRecipesError {
+    display: flex;
+    width: 100%;
+    grid-column: 1 / -1;
+}
+
+.ErrorView {
+    margin-top: 40px;
+    font-family: Manrope, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 16px;
+}
+
+.Recipes {
+    background: #FFF;
+    border-radius: 21px;
+    margin-bottom: 40px;
+    -webkit-box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 4px 34px 30px #0000000A;*/
+}
+
+.RecipesHeader {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+}
+
+.RecipesHeader > img {
+    width: 100%;
+    height: 100%;
+    border-radius: 21px 21px 0 0;
+    object-fit: cover;
+}
+
+.RecipesHeaderTime {
+    position: absolute;
+    top: 25px;
+    right: 35px;
+    padding: 5px 15px;
+    border-radius: 14px;
+    background: var(--color-secondary);
+}
+
+.RecipesHeaderTime > p {
+    font-family: Manrope, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.RecipesContent {
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.RecipesContentTitle > p {
+    font-family: Anton, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.RecetteContentDescription,
+.RecetteContentIngredients {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.RecetteListIngredients {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.IngredientItemQuantity,
+.RecetteContentDescriptionTitle,
+.RecetteContentIngredientsTitle {
+    color: #7A7A7A;
+}
+
+.ContentIngredientItem {
+    flex-basis: 47%;
+    margin-bottom: 20px;
+}
+
+.RecetteContentDescription > p:last-child > div {
+    text-align: justify;
+}
+
+.RecetteContentDescriptionTitle > p {
+    font-family: Manrope, sans-serif;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 16px;
+}
+
+.RecipesContentDescriptionReadMore {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.RecipesContentDescriptionReadMore:hover {
+    color: blue;
+    font-style: italic;
+}
+
+@media only screen and (min-width: 600px) {
+    #RenderRecipes {
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #RenderRecipes {
+        margin: 0 30px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #RenderRecipes {
+        margin: 0 40px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #RenderRecipes {
+        margin: 0 50px;
+    }
+}

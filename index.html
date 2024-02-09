@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="icon" type="image/x-icon" href="./public/favicon.ico">
+  <title>Les petits plats</title>
+  <meta name="description" content="Parcourez notre plateforme dédiée à l'art culinaire, résultat de notre savoir-faire forgé dans l'édition de livres de cuisine.">
+</head>
+<body>
+<header id="Header">
+  <div class="HeaderContainer">
+    <div>
+      <img src="./public/images/logo.svg" id="logo" alt="Logo Les Petits Plats">
+    </div>
+    <div><h1>CHERCHEZ PARMI PLUS DE 1500 RECETTES DU QUOTIDIEN,SIMPLES ET DÉLICIEUSES</h1></div>
+    <div id="HeaderSearch" class="HeaderSearch">
+      <form action="#" id="HeaderSearchForm" method="post">
+        <input type="text" name="search" id="HeaderSearchFormInput" placeholder="Rechercher une recette, un ingrédient, ...">
+        <label id="HeaderSearchFormLabel" for="HeaderSearchFormInput"></label>
+      </form>
+    </div>
+  </div>
+</header>
+<main>
+  <div id="RenderOptions">
+    <span id="RenderLength"></span>
+  </div>
+  <div id="RenderRecipes">
+    <span id="RenderTags"></span>
+    <span id="RenderRecipesError"></span>
+  </div>
+</main>
+<script src="./public/js/script.js" type="module"></script>
+<noscript>Vous devez activer javascript !</noscript>
+</body>
+</html>

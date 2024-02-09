@@ -1,0 +1,35 @@
+@startuml
+
+:start:
+:dataSearchFor function begins;
+:getProperty(recipe) function;
+note right
+Cette fonction récupère une propriété spécifique (nom, description ou appliance) du plat.
+end note
+:split search into words;
+
+:loop through recipes;
+note right
+La fonction utilise une boucle for pour parcourir les recettes, vérifie si chaque mot de recherche existe
+dans la propriété extraite avec .includes(). Si oui, ajouter la recette à la liste des résultats.
+end note
+
+:searchByPropertyAlternativeFor function;
+:searchByUtensilsAlternativeFor;
+note right
+Cette fonction utilise une boucle for pour parcourir chaque recette et chaque ustensile.
+Si un ustensile contient le mot de recherche, ajouter la recette à la liste des résultats et rompre la boucle.
+end note
+
+:searchByIngredientsAlternativeFor function;
+note right
+Cette fonction utilise une boucle for pour parcourir chaque recette et chaque ingrédient.
+Si un ingrédient contient le mot de recherche, ajouter la recette à la liste des résultats et rompre la boucle.
+end note
+
+:return union of all filters into a new set;
+:store results;
+
+:stop;
+
+@enduml

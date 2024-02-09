@@ -1,0 +1,35 @@
+@startuml
+
+:start:
+:dataSearch function begins;
+:getProperty(recipe) function;
+note right
+Cette fonction récupère une propriété spécifique (nom, description ou appliance) du plat.
+end note
+
+:split search into words;
+:filter recipes;
+note right
+Cette fonction utilise .filter() & .every() pour parcourir la liste de recettes et la
+filtrer en fonction des termes de recherche dans la propriété extraite.
+end note
+
+:searchByPropertyAlternative function;
+:searchByUtensilsAlternative;
+note right
+Cette fonction filtre les recettes en utilisant .filter() & .some() pour chercher
+les termes de recherche présents dans les ustensiles utilisés dans chaque recette.
+end note
+
+:searchByIngredientsAlternative function;
+note right
+Cette fonction filtre les recettes en utilisant .filter() & .some() pour chercher
+les termes de recherche présents dans les ingrédients utilisés dans chaque recette.
+end note
+
+:return union of all filters into a new set;
+:store results;
+
+:stop;
+
+@enduml

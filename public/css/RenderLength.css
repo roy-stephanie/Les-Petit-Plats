@@ -1,0 +1,52 @@
+#RenderLength {
+    position:  absolute;
+    right: 5px;
+    top: 35px;
+}
+
+#RenderLength p {
+    font-family: Anton, sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 31px;
+}
+
+@media only screen and (min-width: 450px) {
+    #RenderLength {
+        position:  absolute;
+        right: 15px;
+        top: 1px;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #RenderLength {
+        position:  absolute;
+        right: 25px;
+        top: 3px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    #RenderLength {
+        position:  absolute;
+        right: 35px;
+        top: 6px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #RenderLength {
+        position:  absolute;
+        right: 45px;
+        top: 8px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    #RenderLength {
+        position:  absolute;
+        right: 50px;
+        top: 9px;
+    }
+}

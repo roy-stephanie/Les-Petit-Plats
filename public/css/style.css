@@ -1,0 +1,83 @@
+@import './RenderHeader.css';
+@import './RenderOptions.css';
+@import './RenderRecipes.css';
+@import './RenderLength.css';
+@import './RenderTags.css';
+
+*, :after, :before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Anton';
+    src: url('./fonts/Anton-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Manrope';
+    src: url('./fonts/Manrope-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-secondary: #FFD15B;
+    --bg-label: #1B1B1B;
+}
+
+html {
+    background: #ededed;
+}
+
+body {
+    color: #000;
+    font-family: Manrope, sans-serif;
+}
+
+.Hidden {
+    display: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+input:focus {
+    outline: none;
+}
+
+.mb-15 {
+    margin-bottom: 15px;
+}
+
+.rotate {
+    transform: rotate(0deg);
+    transition: transform 0.350s ease-in-out;
+}
+
+.rotate180 {
+    transform: rotate(180deg);
+    transition: transform 0.350s ease-in-out;
+}
+
+.reset-button {
+    position: absolute;
+    top: 8px;
+    right: 50px;
+    cursor: pointer;
+}
+
+.overflow-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

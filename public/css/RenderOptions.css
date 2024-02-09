@@ -1,0 +1,172 @@
+#RenderOptions {
+    position: relative;
+    margin-bottom: 70px;
+}
+
+.OptionsRecipes {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    z-index: 99;
+}
+
+.OptionsRecipes > div {
+    background: #FFF;
+    width: auto;
+    height: 100%;
+    margin-left: 5px;
+    margin-bottom: 40px;
+    border-radius: 11px;
+}
+
+.Dropdown {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    justify-self: flex-start;
+    cursor: pointer;
+    width: 110px;
+    padding: 10px;
+}
+
+.DropdownContent {
+    position: relative;
+    width: 110px;
+
+    border-radius: 0 0 11px 11px;
+    overflow: hidden;
+}
+
+.DropdownSearchOptions {
+    position: relative;
+    max-height: 313px;
+    width: 100%;
+    overflow: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.DropdownSearchOptions::-webkit-scrollbar {
+    display: none;
+}
+
+.DropdownSearchOptions > form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 15px;
+    margin-bottom: 15px;
+}
+
+.DropdownSearchOptions > form > label {
+    position: absolute;
+    right: 12%;
+    top: 10px;
+}
+
+.DropdownSearchOptions > form > input {
+    height: 36px;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 10px;
+    border-radius: 2px;
+    border: 1px #C6C6C6 solid;
+}
+
+.DropdownOption {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.DropdownOptionsItem {
+    order: 1;
+    padding: 10px 15px;
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    transition: all .1s ease-in-out;
+}
+
+.OptionsSelected {
+    order: -1;
+    margin-bottom: 1px;
+}
+
+.DropdownOptionsItem:hover,
+.OptionsSelected {
+    background: var(--color-secondary);
+    cursor: pointer;
+}
+
+.OptionsSelected:hover {
+    font-weight: 700;
+}
+
+.CloseRemoveItemInTag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CloseRemoveItemInTag > img {
+    height: 17px;
+    width: 17px;
+}
+
+.arrow > svg {
+    transform: translate(-50%, -50%);
+}
+
+@media only screen and (min-width: 600px) {
+    .Dropdown {
+        width: 120px;
+        padding: 10px;
+    }
+    .OptionsRecipes > div {
+        margin-left: 20px;
+    }
+    .DropdownContent {
+        width: 120px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .Dropdown {
+        width: 150px;
+        padding: 15px;
+    }
+    .OptionsRecipes > div {
+        margin-left: 30px;
+    }
+    .DropdownContent {
+        width: 150px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .Dropdown {
+        width: 200px;
+    }
+    .OptionsRecipes > div {
+        margin-left: 40px;
+    }
+    .DropdownContent {
+        width: 200px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .Dropdown {
+        width: 200px;
+    }
+    .OptionsRecipes > div {
+        margin-left: 50px;
+    }
+    .DropdownContent {
+        width: 200px;
+    }
+}

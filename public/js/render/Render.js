@@ -1,4 +1,4 @@
-import Recipes from '../entity/recipes.js';
+import Recipes, { saveOptions } from '../entity/recipes.js';
 import DataSearch from '../data/dataSearch.js';
 import RenderOptions from './RenderOptions.js';
 import RenderTags from './RenderTags.js';
